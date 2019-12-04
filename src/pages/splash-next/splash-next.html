@@ -6,13 +6,11 @@
 -->
 
 <ion-content no-padding>
-    <div ion-fixed style="z-index: 0;">
-        <img style="width:100vw; height:100%; position:stretch;" src="./assets/imgs/splash.jpg" />
+    <div class="background-splash" ion-fixed style="z-index: 0;">
+        
       </div>
       <div class="splash-cont">
-        3... <br/>
-        2... <br/>
-        {{ 'SPLASH_PAGE.ONE' | translate }} <br/>
+        <h4 style="font-size: 6vw;">{{ 'SPLASH_PAGE.ONE' | translate }}</h4>
         {{ 'SPLASH_PAGE.EXP' | translate }}
       </div>
 </ion-content>
@@ -21,12 +19,12 @@
       <ion-buttons>
         <button [navPush]="Changelang" ion-button icon-left>
           <ion-icon name="arrow-back"></ion-icon>
-        BACK
+        {{'SPLASH_PAGE.BACK'|translate}}
         </button>
       </ion-buttons>
       <ion-buttons end>
         <button ion-button icon-right (click)="GoToHome()">
-          NEXT
+          {{'SPLASH_PAGE.NEXT'|translate}}
           <ion-icon name="arrow-forward"></ion-icon>
         </button>
       </ion-buttons>

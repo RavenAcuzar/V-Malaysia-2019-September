@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle color="dark">
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
@@ -8,9 +8,9 @@
 
 <ion-content no-padding no-bounce>
   <div class="home-bg">
-    <img src="./assets/imgs/home-bg.png" />
+    <img style="width: 100vw;" src="assets/imgs/home-bg.png" />
     <div class="countdown" [hidden]="!hideCountdown">
-      <h4>{{'HOME_PAGE.WELC' | translate}} </h4>
+      <h4>{{'HOME_PAGE.WELC1' | translate}} <br> {{'HOME_PAGE.WELC2' | translate}} </h4>
       <h5>{{'HOME_PAGE.DAY'| translate}} {{dayValue}}</h5>
     </div>
     <ion-row class="countdown" [hidden]="hideCountdown">
@@ -34,22 +34,22 @@
   </div>
   
   <div style="margin-top: -18.7vw;">
-    <div class="btn-home btn-cnt" style="background-color: #b07a39;" (click)="GoToOne()">
-        <img src="./assets/imgs/home-btn1.png" />
+    <div class="btn-home btn-cnt" (click)="GoToOne()">
+        <img src="assets/imgs/home-btn1.png" />
       <a style="height: 3rem;">
         <h1>{{'HOME_PAGE.BTNS.btn_1' | translate}}</h1>
       </a>
     </div>
-    <div class="btn-home btn-cnt" style="background-color: #3997d3;" (click)="GoToMark()">
-      <img src="./assets/imgs/home-btn2.png" />
+    <div class="btn-home btn-cnt" (click)="GoToMark()">
+      <img src="assets/imgs/home-btn2.png" />
       <a>
         {{'HOME_PAGE.BTNS.btn_2_sub' | translate}}
         <br>
         <h1>{{'HOME_PAGE.BTNS.btn_2' | translate}}</h1>
       </a>
     </div>
-    <div class="btn-home btn-cnt" style="background-color: #385e9c;" (click)="GoToDownloads()">
-      <img src="./assets/imgs/home-btn3.png" />
+    <div class="btn-home btn-cnt" (click)="GoToDownloads()">
+      <img src="assets/imgs/home-btn3.png" />
       <a>
         {{'HOME_PAGE.BTNS.btn_3_sub' | translate}}
         <br>
@@ -58,18 +58,25 @@
     </div>
   </div>
   <div style="background-color:rgb(245, 245, 245); display:inline-block; width:100vw;">
-      <h5 style="color:#305D7F; font-size: 2.3vh; text-align:center;">{{'HOME_PAGE.NEWS_AND_UPDATES' | translate}}</h5>
-      <div style="padding:30px; padding-bottom: 1vh; padding-top:0;" *ngFor="let news of myNews">
-        <ion-card (click)="GoToNews(news.Title)">
-          <ion-item class="news-lbl">
-            <h3 [innerHTML]="news.localTitle"></h3>
-            <p>in {{news.SubCategory}}</p>
-          </ion-item>
-          <img [src]="news.ImageLink" />
-          <ion-card-content style="text-align:left; color:gray; font-size: 1.5vh;">
+      <h5 style="color:#465f5a; font-size: 2.3vh; text-align:center;">{{'HOME_PAGE.NEWS_AND_UPDATES' | translate}}</h5>
+      <div style="padding-bottom: 2vh; padding-top:0;" *ngFor="let news of myNews; let i = index;">
+          <ion-card style="width: 100% !important;margin: 0;">
+              <ion-item class="news-lbl">
+                <h3 [innerHTML]="news.LocalTitle"></h3>
+                <p>in {{news.SubCategory}}</p>
+                <button item-right ion-button icon-only (click)="removeToFaves(news, i)" clear class="fave-style" *ngIf="news.fave">
+                    <ion-icon name="md-star" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+                  </button>
+                  <button item-right ion-button icon-only (click)="addToFaves(news, i)" clear class="fave-style" *ngIf="!news.fave">
+                      <ion-icon name="md-star-outline" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+                    </button>
+              </ion-item>
+              <img [src]="news.ImageLink"  (click)="GoToNews(news.Title)"/>
+          <!-- <ion-card-content style="text-align:left; color:gray; font-size: 1.5vh;">
               {{news.CreatedOnDate}}
-          </ion-card-content>
+          </ion-card-content> -->
         </ion-card>
       </div>
   </div>
+  <iframe src="https://www.youtube.com/watch?v=Fnzn-3oXEUI" style="display:hidden !important; height: 0 !important; width: 0 !important;"></iframe>
 </ion-content>

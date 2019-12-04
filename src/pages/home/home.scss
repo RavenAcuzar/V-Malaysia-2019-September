@@ -1,4 +1,22 @@
 page-home {
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        ion-content{
+            background: #F2CBC7 !important;
+        }
+        .home-bg{
+            margin-top: 4vh;
+        }
+    }
+    .fave-style{
+        height: 8vw !important;
+            width:8vw !important;
+            span{
+                font-size: 4vw;
+            }
+    }
     .home-bg{
         position: relative;
         z-index: 2;
@@ -53,7 +71,7 @@ page-home {
         color: white;
         text-shadow: 1px 1px rgba(0,0,0,0.3);
         position: absolute;
-        width: 65%;
+        width: 80%;
         bottom: 30vw;
         left: 0;
         right: 0;
@@ -71,5 +89,8 @@ page-home {
             font-size: 1.4vh;
             font-weight: bold;
         }
+    }
+    .countdown.row{
+        width: 75%;
     }
 }

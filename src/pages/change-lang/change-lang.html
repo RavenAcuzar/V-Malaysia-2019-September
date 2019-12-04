@@ -15,14 +15,14 @@
 
 <ion-content no-bounce>
     <div ion-fixed style="z-index: 0;">
-        <img style="width:100vw; height:100%; position:cover;" src="./assets/imgs/bg-lang.jpg" />
+        <img style="width: 100vw; height: 100vh; object-fit: cover;" src="./assets/imgs/bg-lang.jpg" />
       </div>
     <ion-list class="selectLang" radio-group no-lines >
         <a ion-item class="menuItems" detail-none [navPush]="SplashnextPage" (click)="segmentChanged('en')">
           <ion-label>{{ 'CHLANG_PAGE.ENGLISH' | translate }}</ion-label>
         </a>
         <a ion-item class="menuItems" detail-none [navPush]="SplashnextPage" (click)="segmentChanged('id')">
-          <ion-label>{{'CHLANG_PAGE.BAHASA-INDONESIAN' | translate }}</ion-label>
+          <ion-label>{{ 'CHLANG_PAGE.BAHASA-INDONESIAN' | translate }}</ion-label>
         </a>
         <a ion-item class="menuItems" detail-none [navPush]="SplashnextPage" (click)="segmentChanged('fr')">
           <ion-label>{{'CHLANG_PAGE.FRENCH' | translate}}</ion-label>

@@ -10,4 +10,33 @@ page-news-and-updates {
     .header-title.arabic{
         letter-spacing: 0 !important;
     }
+    .fave-style{
+        height: 8vw !important;
+            width:8vw !important;
+            span{
+                font-size: 4vw;
+            }
+    }
+    .vidplay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 50pt;
+        width: fit-content;
+        height: fit-content;
+    }
+    .parent {
+        position: relative;
+    }
+    .turc{
+        height: 5.2rem !important;
+        line-height: normal !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+            white-space: pre-wrap !important;
+    }
 }

@@ -1,4 +1,22 @@
 page-newslanding {
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .page-title-header{
+            height: 18vh !important;
+            img{
+                height: 18vh !important;
+            }
+        }
+        .news-h::after{
+            height: 17.5vh !important;
+        }
+    }
+    a{
+        color: map-get($colors,secondary ) !important;
+        text-decoration: underline !important;
+    }
     .news-h{
         h1{
             top: 0;
@@ -18,6 +36,9 @@ page-newslanding {
     }
     .header-title{
         letter-spacing: 6px; 
+    }
+    button{
+        color: map-get($colors, dark) !important;
     }
     .header-title.arabic{
         letter-spacing: 0 !important;

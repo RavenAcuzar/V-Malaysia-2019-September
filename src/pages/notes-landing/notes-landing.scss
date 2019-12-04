@@ -1,0 +1,45 @@
+page-notes-landing {
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        ion-content{
+            >.scroll-content{
+                padding-top: 36px !important;
+            }
+        }
+    }
+    ion-content{
+        >.scroll-content{
+            margin-top: 56px !important;
+        }
+    }
+    
+    ion-title{
+        div{color:map-get($colors, primary) !important;}
+    }
+    ion-header{
+        button{
+            color: map-get($colors, dark) !important;
+        }
+    }
+    a{
+        color: black!important;
+    }
+
+    .background-splash{   
+        height: 100%;
+        width: 100vw;
+        background-image: url("../assets/imgs/bg-contact.jpg");
+        background-size: cover;
+        background-position: center center;
+        filter: brightness(82%);
+    }
+    
+    .froala-box, .froala-box .froala-wrapper.f-basic {
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
+        user-select: text !important;
+    }
+}

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { LANGUAGE_KEY } from '../../app/app.constants';
+import { GoogleAnalyticsService } from '../../app/services/analytics.service';
 
 /**
  * Generated class for the FaqsPage page.
@@ -15,12 +18,17 @@ import { NavController, NavParams } from 'ionic-angular';
 export class FaqsPage {
   private currentLang;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.currentLang = window.localStorage['mylanguage'];
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  storage:Storage,
+  private gaSvc:GoogleAnalyticsService) {
+    storage.get(LANGUAGE_KEY).then(lang=>{
+      this.currentLang = lang;
+    })
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FaqsPage');
+    this.gaSvc.gaTrackPageEnter('FAQ Page');
   }
 
 }

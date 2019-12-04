@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle color="dark">
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
@@ -19,19 +19,68 @@
     <h1 class="header-title" [class.arabic]="currentLang === 'ar'">{{'NEWSLANDING_PAGE.TITLE' | translate}}</h1>
   </div>
   <div style="background-color:rgb(245, 245, 245); display:inline-block;">
-    <div padding>
-      <H4 style="text-align: center; color: #B14697;">{{'NEWSLANDING_PAGE.CONTENT' | translate}}</H4>
-      <div *ngFor="let news of myNews">
-          <ion-card (click)="GoToNews(news.Title)">
+    <ion-segment [(ngModel)]="type" color="primary" mode='md'>
+      <ion-segment-button value="articles" [class.turc]="currentLang === 'tr'">
+        {{'NEWSLANDING_PAGE.TAB1' |translate}}
+      </ion-segment-button>
+      <ion-segment-button value="vids" [class.turc]="currentLang === 'tr'">
+        {{'NEWSLANDING_PAGE.TAB2' |translate}}
+      </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="type">
+      <div *ngSwitchCase="'articles'">
+        <H6 style="text-align: center; color: #465f5a;">{{'NEWSLANDING_PAGE.CONTENT1' | translate}}</H6>
+        <div style="padding-bottom: 2vh; padding-top:0;" *ngFor="let news of myNews; let i = index;">
+          <ion-card style="width: 100% !important;margin: 0;">
             <ion-item class="news-lbl">
-              <h3 [innerHTML]="news.localTitle"></h3>
+              <h3 [innerHTML]="news.LocalTitle"></h3>
               <p>in {{news.SubCategory}}</p>
+              <button item-right ion-button icon-only (click)="removeToFaves(news, i)" clear class="fave-style"
+                *ngIf="news.fave">
+                <ion-icon name="md-star" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+              </button>
+              <button item-right ion-button icon-only (click)="addToFaves(news, i)" clear class="fave-style"
+                *ngIf="!news.fave">
+                <ion-icon name="md-star-outline" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+              </button>
             </ion-item>
-            <img [src]="news.ImageLink" />
-            <ion-card-content style="text-align:left; color:gray; font-size: 1.5vh;">
+            <img [src]="news.ImageLink" (click)="GoToNews(news.Title)" />
+            <!-- <ion-card-content style="text-align:left; color:gray; font-size: 1.5vh;">
                 {{news.CreatedOnDate}}
-            </ion-card-content>
+            </ion-card-content> -->
           </ion-card>
+        </div>
+      </div>
+      <div *ngSwitchCase="'vids'">
+          <!--<H6 style="text-align: center; color: #465f5a;">{{'NEWSLANDING_PAGE.CONTENT' | translate}}</H6>-->
+          <H6 style="text-align: center; color: #465f5a;">{{'NEWSLANDING_PAGE.CONTENT2' | translate}}</H6>
+          <div style="padding-bottom: 2vh; padding-top:0;" *ngFor="let vid of vids; let x = index;">
+            <ion-card style="width: 100% !important;margin: 0;">
+              <div class="parent">
+                <a [href]="sanitize(vid.VidLink)">
+              <img [src]="vid.ImageLink" />
+            </a>
+              <!-- <ion-card-content style="text-align:left; color:gray; font-size: 1.5vh;">
+                  {{news.CreatedOnDate}}
+              </ion-card-content> -->
+              <div class="vidplay">
+                  <ion-icon name="play"></ion-icon>
+                </div>
+              </div>
+              <ion-item class="news-lbl">
+                  <h3 [innerHTML]="vid.LocalTitle"></h3>
+                  <p>in {{vid.SubCategory}}</p>
+                  <button item-right ion-button icon-only (click)="removeVidFaves(vid, x)" clear class="fave-style"
+                    *ngIf="vid.fave">
+                    <ion-icon name="md-star" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+                  </button>
+                  <button item-right ion-button icon-only (click)="addVidFaves(vid, x)" clear class="fave-style"
+                    *ngIf="!vid.fave">
+                    <ion-icon name="md-star-outline" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+                  </button>
+                </ion-item>
+            </ion-card>
+          </div>
         </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle color="dark">
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
@@ -20,19 +20,25 @@
     </ion-slide>
   </ion-slides>
   <div ion-fixed style="z-index: 0;">
-    <img style="width:100vw; height:100%; position:cover;" src="./assets/imgs/bg-contact.jpg" />
+    <img style="width:100vw; height:100vh; position:cover;" src="./assets/imgs/bg-contact.jpg" />
   </div>
   <div class="page-content" style="margin-top:0; min-height:74vh;" padding [hidden]="!merchHide" >
       <h4>{{'MERCH_PAGE.CONTENT_2' | translate}}</h4>
   </div>
   <div class="page-content" style="margin-top:0; min-height:74vh;" padding [hidden]="merchHide">
       <h4>{{'MERCH_PAGE.CONTENT' | translate}}</h4>
-      <div class="merch-cont" padding  *ngFor="let merch of myMerchandise">
+      <div class="merch-cont" padding  *ngFor="let merch of myMerchandise; let i = index;">
         <img [src]="merch.image"/>
-        <div>
-          <h4>{{merch.title}}</h4>
-          <p>{{merch.price}}</p>
+        <div class="desc">
+          <h4 dir=ltr>{{merch.title}}</h4>
+          <p dir=ltr>{{merch.price}}</p>
+        </div>
+        <button ion-button icon-only (click)="removeToFaves(merch, i)" class="fav fave-style" *ngIf="merch.fave" clear>
+            <ion-icon name="md-star" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+          </button>
+          <button ion-button icon-only (click)="addToFaves(merch, i)" class="fav fave-style" *ngIf="!merch.fave" clear>
+              <ion-icon name="md-star-outline" style="color: rgba(3, 3, 3, 0.588);"></ion-icon>
+            </button>
         </div>
       </div>
-  </div>
 </ion-content>

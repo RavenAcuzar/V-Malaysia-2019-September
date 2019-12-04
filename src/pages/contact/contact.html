@@ -6,7 +6,7 @@
 -->
 <ion-header no-border>
     <ion-navbar>
-      <button ion-button menuToggle>
+      <button ion-button menuToggle color="dark">
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-navbar>
@@ -15,7 +15,8 @@
   
   <ion-content no-padding no-bounce>
     <div ion-fixed style="z-index: 0;">
-      <img style="width:100vw; height:100%; position:cover;" src="./assets/imgs/bg-contact.jpg" />
+      <img style="width: 100vw; height: 100vh; object-fit: cover;" src="./assets/imgs/bg-contact.jpg" />
+      <div style="background-color: rgba(0,0,0,0.2); height: 100vh; width: 100wv"></div>
     </div>
     <div class="contact" ion-fixed>
       <h4>{{'CONT_PAGE.TITLE' | translate}}</h4>
@@ -31,7 +32,7 @@
       <p>Mr. Dharmarajan Uvarajan
         <br>dharmarajan.uvarajan@the-v.net
         <br><code dir=ltr>+601 2399 1074</code></p>
-      <p style="font-weight: 300; margin-top: 9vh;">{{'CONT_PAGE.LTS' | translate}}</p>
+      <p style="font-weight: 400; margin-top: 5vh;">{{'CONT_PAGE.LTS' | translate}}</p>
       <ion-row>
         <ion-col>
           <a href="https://www.facebook.com/TheV.official/"><ion-icon name="logo-facebook"></ion-icon></a>
