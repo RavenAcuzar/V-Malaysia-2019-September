@@ -63,6 +63,9 @@ ionic cordova build ios
 - Content Translations
 - News Feed exclusive for event participants.
 - Program survey taking.
+- Integrated with Google Analytics
+- Integrated with Firebase Push Notifications
+- AR Image Target Overlay using [Wikitude](https://www.wikitude.com/)
 
 ## Built with
 
