@@ -1,5 +1,5 @@
 # ![App Icon](https://github.com/RavenAcuzar/V-Malaysia-2019-September/blob/master/resources/android/icon/drawable-xhdpi-icon.png) 
-# V-Malaysia 2019 (OLD Version)
+# V-Malaysia 2019
 
 The V-Malaysia 2019 Mobile App is made for all participants of V-Malaysia 2019.
 
